@@ -6,13 +6,28 @@ import (
 	"net/http"
 )
 
+func parseTemplate(name string) *template.Template {
+	tmpl, err := template.ParseFiles(
+		"templates/base.tmpl",
+		"templates/"+name+".tmpl",
+	)
+
+	if err != nil {
+		log.Fatal("template parsing error " + err.Error())
+	}
+
+	return tmpl
+}
+
 var (
-	main_template         = template.Must(template.ParseFiles("templates/main.tmpl"))
-	mother_info_template  = template.Must(template.ParseFiles("templates/motherinfo.tmpl"))
-	dad_info_template     = template.Must(template.ParseFiles("templates/dadinfo.tmpl"))
-	child_info_template   = template.Must(template.ParseFiles("templates/childinfo.tmpl"))
-	visit_info_template   = template.Must(template.ParseFiles("templates/visitinfo.tmpl"))
-	visit_topics_template = template.Must(template.ParseFiles("templates/visittopics.tmpl"))
+	mother_info_template   = parseTemplate("motherinfo")
+	dad_info_template      = parseTemplate("dadinfo")
+	child_info_template    = parseTemplate("childinfo")
+	visit_info_template    = parseTemplate("visitinfo")
+	visit_topics_template  = parseTemplate("visittopics")
+	index_template         = parseTemplate("index")
+	general_template       = parseTemplate("general")
+	child_mashora_template = parseTemplate("childmashora")
 )
 
 type IndexData struct {
@@ -33,51 +48,109 @@ func redirect_to_root(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
+func handleMotherInfo(w http.ResponseWriter, r *http.Request) {
+	if !is_htmx(r) {
+		redirect_to_root(w, r)
+	}
+	if err := mother_info_template.ExecuteTemplate(w, "base.tmpl", nil); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func handleDadInfo(w http.ResponseWriter, r *http.Request) {
+	if !is_htmx(r) {
+		redirect_to_root(w, r)
+	}
+	if err := dad_info_template.ExecuteTemplate(w, "base.tmpl", nil); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func handleChildInfo(w http.ResponseWriter, r *http.Request) {
+	if !is_htmx(r) {
+		redirect_to_root(w, r)
+	}
+	if err := child_info_template.ExecuteTemplate(w, "base.tmpl", nil); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func handleVisitInfo(w http.ResponseWriter, r *http.Request) {
+	if !is_htmx(r) {
+		redirect_to_root(w, r)
+	}
+	if err := visit_info_template.ExecuteTemplate(w, "base.tmpl", nil); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func handleVisitTopics(w http.ResponseWriter, r *http.Request) {
+	if !is_htmx(r) {
+		redirect_to_root(w, r)
+	}
+	if err := visit_topics_template.ExecuteTemplate(w, "base.tmpl", nil); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func handleGeneral(w http.ResponseWriter, r *http.Request) {
+	if !is_htmx(r) {
+		redirect_to_root(w, r)
+	}
+	if err := general_template.ExecuteTemplate(w, "base.tmpl", nil); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func handleChildMashora(w http.ResponseWriter, r *http.Request) {
+	if !is_htmx(r) {
+		redirect_to_root(w, r)
+	}
+	if err := child_mashora_template.ExecuteTemplate(w, "base.tmpl", nil); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func handleSubmitGeneral(w http.ResponseWriter, r *http.Request) {
+	if !is_htmx(r) {
+		redirect_to_root(w, r)
+	}
+
+	if r.Method != http.MethodPost {
+		redirect_to_root(w, r)
+	}
+
+	if err := r.ParseForm(); err != nil {
+		http.Error(w, "Error parsing the form", http.StatusBadRequest)
+		return
+	}
+
+	mashora_kind := r.FormValue("mashora_kind")
+
+	switch mashora_kind {
+	case "for-child":
+		handleChildMashora(w, r)
+	default:
+		handleIndex(w, r)
+	}
+}
+
+func handleIndex(w http.ResponseWriter, r *http.Request) {
+	if err := index_template.ExecuteTemplate(w, "base.tmpl", nil); err != nil {
+		log.Fatal(err)
+	}
+}
+
 func main() {
-	http.HandleFunc("/motherinfo", func(w http.ResponseWriter, r *http.Request) {
-		if !is_htmx(r) {
-			redirect_to_root(w, r)
-		}
-		if err := mother_info_template.Execute(w, nil); err != nil {
-			log.Fatal(err)
-		}
-	})
-	http.HandleFunc("/dadinfo", func(w http.ResponseWriter, r *http.Request) {
-		if !is_htmx(r) {
-			redirect_to_root(w, r)
-		}
-		if err := dad_info_template.Execute(w, nil); err != nil {
-			log.Fatal(err)
-		}
-	})
-	http.HandleFunc("/childinfo", func(w http.ResponseWriter, r *http.Request) {
-		if !is_htmx(r) {
-			redirect_to_root(w, r)
-		}
-		if err := child_info_template.Execute(w, nil); err != nil {
-			log.Fatal(err)
-		}
-	})
-	http.HandleFunc("/visitinfo", func(w http.ResponseWriter, r *http.Request) {
-		if !is_htmx(r) {
-			redirect_to_root(w, r)
-		}
-		if err := visit_info_template.Execute(w, nil); err != nil {
-			log.Fatal(err)
-		}
-	})
-	http.HandleFunc("/visittopics", func(w http.ResponseWriter, r *http.Request) {
-		if !is_htmx(r) {
-			redirect_to_root(w, r)
-		}
-		if err := visit_topics_template.Execute(w, nil); err != nil {
-			log.Fatal(err)
-		}
-	})
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		if err := main_template.Execute(w, nil); err != nil {
-			log.Fatal(err)
-		}
-	})
+	http.HandleFunc("/motherinfo", handleMotherInfo)
+	http.HandleFunc("/dadinfo", handleDadInfo)
+	http.HandleFunc("/childinfo", handleChildInfo)
+	http.HandleFunc("/visitinfo", handleVisitInfo)
+	http.HandleFunc("/visittopics", handleVisitTopics)
+	http.HandleFunc("/general", handleGeneral)
+	http.HandleFunc("/childmashora", handleChildMashora)
+	http.HandleFunc("/submitgeneral", handleSubmitGeneral)
+	http.HandleFunc("/", handleIndex)
+
 	log.Fatal(http.ListenAndServe(":5173", nil))
 }

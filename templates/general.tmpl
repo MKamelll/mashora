@@ -1,0 +1,84 @@
+{{ define "title" }}بيانات عامة{{ end }}
+
+{{ define "content" }}
+<div class="max-w-2xl mx-auto p-4">
+    <form
+    hx-post="/submitgeneral" 
+    class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-base-200 p-6 rounded-lg shadow">
+        <div>
+            <label class="label">
+                <span class="label-text">المحافظة</span>
+            </label>
+            <input type="text" class="input input-bordered w-full"  />
+        </div>
+        <div>
+            <label class="label">
+                <span class="label-text">كود المحافظة</span>
+            </label>
+            <input type="text" placeholder="من MFL" class="input input-bordered w-full"  />
+        </div>
+        <div>
+            <label class="label">
+                <span class="label-text">المنطقة/الادارة</span>
+            </label>
+            <input type="text" class="input input-bordered w-full"  />
+        </div>
+        <div>
+            <label class="label">
+                <span class="label-text">كود الادارة</span>
+            </label>
+            <input type="text" placeholder="من MFL" class="input input-bordered w-full"  />
+        </div>
+        <div>
+            <label class="label">
+                <span class="label-text">المنشاة الصحية</span>
+            </label>
+            <input type="text" class="input input-bordered w-full"  />
+        </div>
+        <div>
+            <label class="label">
+                <span class="label-text">كود المنشاة</span>
+            </label>
+            <input type="text" placeholder="من MFL" class="input input-bordered w-full"  />
+        </div>
+        <div>
+            <label class="label">
+                <span class="label-text">مقدم المشورة</span>
+            </label>
+            <input type="text" placeholder="الاسم ثلاثي علي الأقل" class="input input-bordered w-full"  />
+        </div>
+        <div>
+            <label class="label">
+                <span class="label-text">رقم الهاتف</span>
+            </label>
+            <input type="tel" class="input input-bordered w-full" placeholder="تأكد من كتابة 11 رقم"/>
+        </div>
+        <div>
+            <label class="label">
+                <span class="label-text">تاريخ اول لقاء</span>
+            </label>
+            <input type="date" class="input input-bordered w-full" />
+        </div>
+        <div>
+            <label class="label">
+                <span class="label-text">رقم الحالة</span>
+            </label>
+            <input type="text" inputmode="numeric" pattern="[0-9]" class="input input-bordered w-full no-spinner" />
+        </div>
+        <div>
+            <label class="label">
+                <span class="label-text">نوع المشورة المقدمة</span>
+            </label>
+            <select name="mashora_kind" class="select select-bordered w-full">
+                <option selected value="choose">اختر</option>
+                <option value="for-child">مشورة الاطفال</option>
+                <option value="for-pregnant">المشورة الأسرية للحامل</option>
+                <option value="for-pre-marital">مشورة ما قبل الزواج</option>
+            </select>
+        </div>
+        <div class="md:col-span-2 text-right flex justify-end">
+            <button type="submit" class="btn btn-primary">متابعة</button>
+        </div>
+    </form>
+</div>
+{{ end }}
