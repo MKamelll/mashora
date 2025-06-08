@@ -1,3 +1,0 @@
-# mashora
-website for mashora
-
