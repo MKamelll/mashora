@@ -22,13 +22,8 @@
             </select>
         </div>
 
-        <div>
-            <label class="label">
-                <span class="label-text">تاريخ الزيارة</span>
-            </label>
-            <input type="date" class="input input-bordered w-full" />
-        </div>
-        
+        {% include "main/components/date.html" with label='تاريخ الزيارة' id='visit-date'%}
+
         <div class="border border-base-300 p-4 rounded-lg bg-base-100 shadow-sm mt-6">
             <h3 class="text-lg font-semibold mb-4 text-base-content">الموعد الحالي بشأن الرضاعة</h3>
             <div>
@@ -42,59 +37,15 @@
                     <option value="six-months">6 شهور</option>
                 </select>
             </div>
-            <div>
-                <label class="label">
-                    <span class="label-text">رضاعة طبيعية مع سوائل وأعشاب</span>
-                </label>
-                <select class="select select-bordered w-full">
-                    <option disabled selected value="">اختر</option>
-                    <option value="yes">تم</option>
-                    <option value="no">لم يتم</option>
-                </select>
-            </div>
-            <div>
-                <label class="label">
-                    <span class="label-text">رضاعة طبيعية مع صناعي</span>
-                </label>
-                <select class="select select-bordered w-full">
-                    <option disabled selected value="">اختر</option>
-                    <option value="yes">تم</option>
-                    <option value="no">لم يتم</option>
-                </select>
-            </div>
-            <div>
-                <label class="label">
-                    <span class="label-text">رضاعة لبن صناعي</span>
-                </label>
-                <select class="select select-bordered w-full">
-                    <option disabled selected value="">اختر</option>
-                    <option value="yes">تم</option>
-                    <option value="no">لم يتم</option>
-                </select>
-            </div>
+            {% include "main/components/topicdisscused.html" with label='رضاعة طبيعية مع سوائل وأعشاب' id='breast-feeding-with-liquids'%}
+            {% include "main/components/topicdisscused.html" with label='رضاعة طبيعية مع صناعي' id='breast-feeding-with-other-milk'%}
+            {% include "main/components/topicdisscused.html" with label='رضاعة لبن صناعي' id='other-milk'%}
         </div>
 
         <div>
-            <div>
-                <label class="label">
-                    <span class="label-text">الوزن</span>
-                </label>
-                <input type="text" inputmode="numeric" pattern="[0-9]" class="input input-bordered w-full no-spinner" placeholder="بالكيلوجرام"/>
-            </div>
-            
-            <div>
-                <label class="label">
-                    <span class="label-text">الطول</span>
-                </label>
-                <input type="text" inputmode="numeric" pattern="[0-9]" class="input input-bordered w-full no-spinner" placeholder="بالسنتيمتر"/>
-            </div>
-    
-            <div>
-                <label class="label">
-                    <span class="label-text">محيط الرأس</span>
-                </label>
-                <input type="text" inputmode="numeric" pattern="[0-9]" class="input input-bordered w-full no-spinner" placeholder="بالسنتيمتر"/>
-            </div>
+            {% include "main/components/number.html" with label='الوزن' placeholder='بالكيلوجرام' id='visit-current-weight'%}
+            {% include "main/components/number.html" with label='الطول' placeholder='بالسنتيمتر' id='visit-current-height'%}
+            {% include "main/components/number.html" with label='محيط الرأس' placeholder='بالسنتيمتر' id='visit-current-head-size'%}
         </div>
 
         <div class="md:col-span-2 text-right flex justify-end">
