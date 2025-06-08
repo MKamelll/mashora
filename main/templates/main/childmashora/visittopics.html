@@ -4,78 +4,15 @@
 {% block content %}
 <div class="max-w-2xl mx-auto p-4">
     <form class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-base-200 p-6 rounded-lg shadow">
-        <div>
-            <label class="label">
-                <span class="label-text break-words whitespace-normal">فوائد الرضاعة الطبيعية والأوضاع وعلامات الجوع والشبع</span>
-            </label>
-            <select class="select select-bordered w-full">
-                <option value="yes">تم</option>
-                <option value="no">لم يتم</option>
-            </select>
-        </div>
-        <div>
-            <label class="label">
-                <span class="label-text">كفاية اللبن وكمية البراز</span>
-            </label>
-            <select class="select select-bordered w-full">
-                <option value="yes">تم</option>
-                <option value="no">لم يتم</option>
-            </select>
-        </div>
-        <div>
-            <label class="label">
-                <span class="label-text">اعطاء الجرعة اليومية من فيتامين د</span>
-            </label>
-            <select class="select select-bordered w-full">
-                <option value="yes">تم</option>
-                <option value="no">لم يتم</option>
-            </select>
-        </div>
-        <div>
-            <label class="label">
-                <span class="label-text">كيفية رعاية السرة والاهتمام بنظافة الطفل</span>
-            </label>
-            <select class="select select-bordered w-full">
-                <option value="yes">تم</option>
-                <option value="no">لم يتم</option>
-            </select>
-        </div>
-        <div>
-            <label class="label">
-                <span class="label-text break-words whitespace-normal">البطاقة الصحية وأهمية المتابعة الدورية ومنحنيات النمو</span>
-            </label>
-            <select class="select select-bordered w-full">
-                <option value="yes">تم</option>
-                <option value="no">لم يتم</option>
-            </select>
-        </div>
-        <div>
-            <label class="label">
-                <span class="label-text">اهمية الالتزام بتطعيمات الطفل</span>
-            </label>
-            <select class="select select-bordered w-full">
-                <option value="yes">تم</option>
-                <option value="no">لم يتم</option>
-            </select>
-        </div>
-        <div>
-            <label class="label">
-                <span class="label-text">التغذية الصحية للأم المرضعة</span>
-            </label>
-            <select class="select select-bordered w-full">
-                <option value="yes">تم</option>
-                <option value="no">لم يتم</option>
-            </select>
-        </div>
-        <div>
-            <label class="label">
-                <span class="label-text">كيفية التعرف علي علامات الخطورة</span>
-            </label>
-            <select class="select select-bordered w-full">
-                <option value="yes">تم</option>
-                <option value="no">لم يتم</option>
-            </select>
-        </div>
+        {% include "main/components/topicdisscused.html" with label='فوائد الرضاعة الطبيعية والأوضاع وعلامات الجوع والشبع' id='breast-feeding-benefits'%}
+        {% include "main/components/topicdisscused.html" with label='كفاية اللبن وكمية البراز' id='normal-stool-freq'%}
+        {% include "main/components/topicdisscused.html" with label='اعطاء الجرعة اليومية من فيتامين د' id='vitamin-d-supplement'%}
+        {% include "main/components/topicdisscused.html" with label='كيفية رعاية السرة والاهتمام بنظافة الطفل' id='navel-care-and-hygiene'%}
+        {% include "main/components/topicdisscused.html" with label='البطاقة الصحية وأهمية المتابعة الدورية ومنحنيات النمو' id='health-care-id-and-follow-up'%}
+        {% include "main/components/topicdisscused.html" with label='اهمية الالتزام بتطعيمات الطفل' id='vaccination'%}
+        {% include "main/components/topicdisscused.html" with label='التغذية الصحية للأم المرضعة' id='nutrition-for-breast-feeding-mother'%}
+        {% include "main/components/topicdisscused.html" with label='كيفية التعرف علي علامات الخطورة' id='recognizing-abnormal-behaviour'%}
+        
         <div class="border border-base-300 p-4 rounded-lg bg-base-100 shadow-sm mt-6">
             <h3 class="text-lg font-semibold mb-4 text-base-content">الرسائل الصحية الخاصة بالنمو و التطور</h3>
             <div>
@@ -113,51 +50,11 @@
             </div>
         </div>
         <div>
-            <div>
-                <label class="label">
-                    <span class="label-text">رسائل التربية الايجابية</span>
-                </label>
-                <select class="select select-bordered w-full">
-                    <option value="yes">تم</option>
-                    <option value="no">لم يتم</option>
-                </select>
-            </div>
-            <div>
-                <label class="label">
-                    <span class="label-text">الانشطة التحفيزية</span>
-                </label>
-                <select class="select select-bordered w-full">
-                    <option value="yes">تم</option>
-                    <option value="no">لم يتم</option>
-                </select>
-            </div>
-            <div>
-                <label class="label">
-                    <span class="label-text break-words whitespace-normal">التوعية عن التغذية التكميلية وسلامة الغذاء والتغذية السليمة</span>
-                </label>
-                <select class="select select-bordered w-full">
-                    <option value="yes">تم</option>
-                    <option value="no">لم يتم</option>
-                </select>
-            </div>
-            <div>
-                <label class="label">
-                    <span class="label-text">إعطاء الجرعة اليومية من الحديد</span>
-                </label>
-                <select class="select select-bordered w-full">
-                    <option value="yes">تم</option>
-                    <option value="no">لم يتم</option>
-                </select>
-            </div>
-            <div>
-                <label class="label">
-                    <span class="label-text break-words whitespace-normal">أهمية إستخدام وسيلة تنظيم أسرة وأهمية المباعدة</span>
-                </label>
-                <select class="select select-bordered w-full">
-                    <option value="yes">تم</option>
-                    <option value="no">لم يتم</option>
-                </select>
-            </div>
+            {% include "main/components/topicdisscused.html" with label='رسائل التربية الايجابية' id='positive-education'%}
+            {% include "main/components/topicdisscused.html" with label='الانشطة التحفيزية' id='encouraging-activities'%}            
+            {% include "main/components/topicdisscused.html" with label='التوعية عن التغذية التكميلية وسلامة الغذاء والتغذية السليمة' id='nutrition-info'%}
+            {% include "main/components/topicdisscused.html" with label='إعطاء الجرعة اليومية من الحديد' id='iron-supplement'%}
+            {% include "main/components/topicdisscused.html" with label='أهمية إستخدام وسيلة تنظيم أسرة وأهمية المباعدة' id='contraceptives'%}
         </div>
 
         <div>
@@ -165,7 +62,7 @@
                 <label class="label">
                     <span class="label-text">موقف إستخدام وسيلة تنظيم أسرة</span>
                 </label>
-                <select class="select select-bordered w-full">
+                <select id="is-using-contraceptive" class="select select-bordered w-full">
                     <option value="yes">يوجد</option>
                     <option value="no">لا يوجد</option>
                 </select>
@@ -174,20 +71,12 @@
                 <label class="label">
                     <span class="label-text">الحمل الجديد</span>
                 </label>
-                <select class="select select-bordered w-full">
+                <select id="new-pregnancy-plan" class="select select-bordered w-full">
                     <option value="planned">مرغوب</option>
                     <option value="not-planned">غير مرغوب</option>
                 </select>
             </div>
-            <div>
-                <label class="label">
-                    <span class="label-text">الخدمات الغير ملباه</span>
-                </label>
-                <select class="select select-bordered w-full">
-                    <option value="yes">تم</option>
-                    <option value="no">لم يتم</option>
-                </select>
-            </div>
+            {% include "main/components/topicdisscused.html" with label='الخدمات الغير ملباه' id='other-unavailable-services'%}
         </div>
 
         <div>
