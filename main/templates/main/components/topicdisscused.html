@@ -2,8 +2,9 @@
     <label class="label">
         <span class="label-text">{{ label }}</span>
     </label>
-    <select class="select select-bordered w-full">
-        <option value="yes">تم</option>
-        <option value="no">لم يتم</option>
+    <select required id={{ id }} class="select select-bordered w-full">
+        <option disabled value="">اختر</option>
+        <option value="true">تم</option>
+        <option value="false">لم يتم</option>
     </select>
 </div>
