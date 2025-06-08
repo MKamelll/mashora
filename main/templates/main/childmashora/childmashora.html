@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+{% block title %}مشورة الطفل{% endblock title %}
+
+{% block content %}
+<div x-data="{tab: ''}" role="tablist" class="tabs tabs-bordered">
+    <a role="tab" :class="tab === 'mother'? 'tab tab-active' : 'tab'" @click="tab = 'mother'"
+    hx-get="/motherinfo" hx-target="#info" hx-swap="innerHTML">بيانات الأم</a>
+    
+    <a role="tab" :class="tab === 'dad'? 'tab tab-active' : 'tab'" @click="tab = 'dad'"
+    hx-get="/dadinfo" hx-target="#info" hx-swap="innerHTML">بيانات الأب</a>
+    
+    <a role="tab" :class="tab === 'child'? 'tab tab-active' : 'tab'" @click="tab = 'child'"
+    hx-get="/childinfo" hx-target="#info" hx-swap="innerHTML">بيانات الطفل</a>
+
+    <a role="tab" :class="tab === 'visit'? 'tab tab-active' : 'tab'" @click="tab = 'visit'"
+    hx-get="/visitinfo" hx-target="#info" hx-swap="innerHTML">بيانات الزيارة</a>
+
+    <a role="tab" :class="tab === 'visit_topics'? 'tab tab-active' : 'tab'" @click="tab = 'visit_topics'"
+    hx-get="/visittopics" hx-target="#info" hx-swap="innerHTML">مواضيع الزيارة</a>
+</div>
+
+<div id="info" class="m-4"></div>
+{% endblock content %}
