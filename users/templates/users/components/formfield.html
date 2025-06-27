@@ -11,7 +11,7 @@
 
     {% if field.errors %}
         {% for error in field.errors %}
-            <span class="label-text text-red-500">{{ error }}</span>
+            <p class="text-sm text-red-500">{{ error }}</p>
         {% endfor %}
     {% endif %}
 </div>

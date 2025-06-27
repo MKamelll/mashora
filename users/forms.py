@@ -3,9 +3,18 @@ from django import forms
 from .models import MashoraDoctor
 
 class RegisterForm(UserCreationForm[MashoraDoctor]):
-    username = forms.CharField(label="اسم المستخدم", max_length=150, required=True)
-    password1 = forms.CharField(label="كلمة المرور", max_length=150, required=True)
-    password2 = forms.CharField(label="تاكيد كلمة المرور", max_length=150, required=True)
+    username = forms.CharField(label="اسم المستخدم", max_length=150, required=True, error_messages={
+        "required": "هذا الحقل مطلوب",
+        "max_length": "اقصي عدد من الحروف هو 150",
+        "unique": "اسم المستخدم موجود بالفعل"
+    })
+    password1 = forms.CharField(label="كلمة المرور", max_length=150, required=True, error_messages={
+        "required": "كلمة السر مطلوبة"
+    })
+    password2 = forms.CharField(label="تاكيد كلمة المرور", max_length=150, required=True, error_messages={
+        "required": "اعد كتابة كلمة السر مرة اخري",
+        "password_mismatch": "كلمة السر غير متطابقة"
+    })
     name = forms.CharField(label="اسم مقدم المشورة", max_length=100, required=True)
     phone = forms.CharField(label="رقم الهاتف", max_length=100, required=True)
     governorate = forms.CharField(label="المحافظة", max_length=100, required=True)
