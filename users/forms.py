@@ -109,6 +109,14 @@ class RegisterForm(UserCreationForm[MashoraDoctor]):
         if len(phone) != 11:
             raise forms.ValidationError("رقم الهاتف يجب ان يكون 11 رقم")
         return phone
+    
+    def clean_username(self) -> str:
+        username = self.cleaned_data.get("username")
+        if not username:
+            raise forms.ValidationError("هذا الحقل مطلوب")
+        if MashoraDoctor.objects.filter(username=username).exists():
+            raise forms.ValidationError("اسم المستخدم غير متاح")
+        return username
 
     def clean_password2(self) -> str:
         password2 = self.cleaned_data.get("password2")
