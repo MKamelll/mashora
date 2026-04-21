@@ -16,11 +16,11 @@
   {% for field in form %}
     {% include "users/components/formfield.html" with field=field %}
   {% endfor %}
-  
+
   {% for error in form.non_field_errors %}
-    <div class="text-red-500">{{ error }}</div>
+      <div class="text-red-500">{{ error }}</div>
   {% endfor %}
-  
+
     <div class="md:col-span-2 text-right flex justify-end">
         <button type="submit" class="btn btn-primary">انشاء حساب</button>
     </div>
