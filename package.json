@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "npx @tailwindcss/cli -i ./main/static/main/css/input.css -o ./main/static/main/css/output.css --watch"
+    "tailwind": "npx @tailwindcss/cli -i ./main/static/main/css/input.css -o ./main/static/main/css/output.css --watch",
+    "django": "uv run python3 manage.py runserver",
+    "dev": "concurrently --raw 'npm run tailwind' 'npm run django'"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +14,7 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.8",
     "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.1",
     "daisyui": "^5.0.43",
     "postcss": "^8.5.4",
     "tailwindcss": "^4.1.8"

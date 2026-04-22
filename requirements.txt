@@ -1,3 +1,0 @@
-Django
-django-stubs
-django-stubs-ext
