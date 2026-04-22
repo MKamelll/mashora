@@ -1,4 +1,4 @@
-{% extends "main/base.html" %}
+{% extends "ui/base.djhtml" %}
 {% block title %}مشورة ما قبل الزواج{% endblock title %}
 
 {% block content %}

@@ -1,4 +1,8 @@
-{% extends "main/base.html" %}
+{% extends "ui/base.djhtml" %}
 {% block content %}
-<div id="main" hx-get="/main/general" hx-trigger="load" hx-target="#main" hx-swap="innerHTML"></div>
+    <div id="main"
+         hx-get="/general"
+         hx-trigger="load"
+         hx-target="#main"
+         hx-swap="innerHTML"></div>
 {% endblock content %}

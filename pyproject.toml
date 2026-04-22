@@ -12,6 +12,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "djlint>=1.36.4",
     "pylsp-mypy>=0.7.1",
     "python-lsp-black>=2.0.0",
     "python-lsp-server[all]>=1.14.0",

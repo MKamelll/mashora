@@ -1,18 +1,18 @@
-{% extends "main/base.html" %}
+{% extends "ui/base.djhtml" %}
 {% block title %}مواضيع الزيارة{% endblock title %}
 
 {% block content %}
 <div class="max-w-2xl mx-auto p-4">
     <form class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-base-200 p-6 rounded-lg shadow">
-        {% include "main/components/topicdisscused.html" with label='فوائد الرضاعة الطبيعية والأوضاع وعلامات الجوع والشبع' id='breast-feeding-benefits'%}
-        {% include "main/components/topicdisscused.html" with label='كفاية اللبن وكمية البراز' id='normal-stool-freq'%}
-        {% include "main/components/topicdisscused.html" with label='اعطاء الجرعة اليومية من فيتامين د' id='vitamin-d-supplement'%}
-        {% include "main/components/topicdisscused.html" with label='كيفية رعاية السرة والاهتمام بنظافة الطفل' id='navel-care-and-hygiene'%}
-        {% include "main/components/topicdisscused.html" with label='البطاقة الصحية وأهمية المتابعة الدورية ومنحنيات النمو' id='health-care-id-and-follow-up'%}
-        {% include "main/components/topicdisscused.html" with label='اهمية الالتزام بتطعيمات الطفل' id='vaccination'%}
-        {% include "main/components/topicdisscused.html" with label='التغذية الصحية للأم المرضعة' id='nutrition-for-breast-feeding-mother'%}
-        {% include "main/components/topicdisscused.html" with label='كيفية التعرف علي علامات الخطورة' id='recognizing-abnormal-behaviour'%}
-        
+        {% include "ui/components/topicdisscused.djhtml" with label='فوائد الرضاعة الطبيعية والأوضاع وعلامات الجوع والشبع' id='breast-feeding-benefits'%}
+        {% include "ui/components/topicdisscused.djhtml" with label='كفاية اللبن وكمية البراز' id='normal-stool-freq'%}
+        {% include "ui/components/topicdisscused.djhtml" with label='اعطاء الجرعة اليومية من فيتامين د' id='vitamin-d-supplement'%}
+        {% include "ui/components/topicdisscused.djhtml" with label='كيفية رعاية السرة والاهتمام بنظافة الطفل' id='navel-care-and-hygiene'%}
+        {% include "ui/components/topicdisscused.djhtml" with label='البطاقة الصحية وأهمية المتابعة الدورية ومنحنيات النمو' id='health-care-id-and-follow-up'%}
+        {% include "ui/components/topicdisscused.djhtml" with label='اهمية الالتزام بتطعيمات الطفل' id='vaccination'%}
+        {% include "ui/components/topicdisscused.djhtml" with label='التغذية الصحية للأم المرضعة' id='nutrition-for-breast-feeding-mother'%}
+        {% include "ui/components/topicdisscused.djhtml" with label='كيفية التعرف علي علامات الخطورة' id='recognizing-abnormal-behaviour'%}
+
         <div class="border border-base-300 p-4 rounded-lg bg-base-100 shadow-sm mt-6">
             <h3 class="text-lg font-semibold mb-4 text-base-content">الرسائل الصحية الخاصة بالنمو و التطور</h3>
             <div>
@@ -50,11 +50,11 @@
             </div>
         </div>
         <div>
-            {% include "main/components/topicdisscused.html" with label='رسائل التربية الايجابية' id='positive-education'%}
-            {% include "main/components/topicdisscused.html" with label='الانشطة التحفيزية' id='encouraging-activities'%}            
-            {% include "main/components/topicdisscused.html" with label='التوعية عن التغذية التكميلية وسلامة الغذاء والتغذية السليمة' id='nutrition-info'%}
-            {% include "main/components/topicdisscused.html" with label='إعطاء الجرعة اليومية من الحديد' id='iron-supplement'%}
-            {% include "main/components/topicdisscused.html" with label='أهمية إستخدام وسيلة تنظيم أسرة وأهمية المباعدة' id='contraceptives'%}
+            {% include "ui/components/topicdisscused.djhtml" with label='رسائل التربية الايجابية' id='positive-education'%}
+            {% include "ui/components/topicdisscused.djhtml" with label='الانشطة التحفيزية' id='encouraging-activities'%}
+            {% include "ui/components/topicdisscused.djhtml" with label='التوعية عن التغذية التكميلية وسلامة الغذاء والتغذية السليمة' id='nutrition-info'%}
+            {% include "ui/components/topicdisscused.djhtml" with label='إعطاء الجرعة اليومية من الحديد' id='iron-supplement'%}
+            {% include "ui/components/topicdisscused.djhtml" with label='أهمية إستخدام وسيلة تنظيم أسرة وأهمية المباعدة' id='contraceptives'%}
         </div>
 
         <div>
@@ -76,7 +76,7 @@
                     <option value="not-planned">غير مرغوب</option>
                 </select>
             </div>
-            {% include "main/components/topicdisscused.html" with label='الخدمات الغير ملباه' id='other-unavailable-services'%}
+            {% include "ui/components/topicdisscused.djhtml" with label='الخدمات الغير ملباه' id='other-unavailable-services'%}
         </div>
 
         <div>

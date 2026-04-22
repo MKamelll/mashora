@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse, HttpResponseServerError
-from
+from .forms import RegisterForm
 
 
 def index(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name="ui/index.html")
+    return render(request=request, template_name="ui/index.djhtml")
 
 
 def register(request: HttpRequest) -> HttpResponse:
@@ -16,22 +16,22 @@ def register(request: HttpRequest) -> HttpResponse:
         else:
             return render(
                 request=request,
-                template_name="users/register.html",
+                template_name="ui/register.djhtml",
                 context={"form": form},
             )
     else:
         form = RegisterForm()
     return render(
-        request=request, template_name="users/register.html", context={"form": form}
+        request=request, template_name="ui/register.djhtml", context={"form": form}
     )
 
 
 def login(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name="users/login.html")
+    return render(request=request, template_name="ui/login.djhtml")
 
 
 def general(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name="ui/general.html")
+    return render(request=request, template_name="ui/general.djhtml")
 
 
 def submit_general(request: HttpRequest) -> HttpResponse | HttpResponseServerError:
@@ -39,7 +39,7 @@ def submit_general(request: HttpRequest) -> HttpResponse | HttpResponseServerErr
         match request.POST.get("mashora_kind"):
             case "for-child":
                 return render(
-                    request=request, template_name="ui/childmashora/childmashora.html"
+                    request=request, template_name="ui/childmashora/childmashora.djhtml"
                 )
             case "for-pre-marital":
                 is_first_meeting = True
@@ -47,7 +47,7 @@ def submit_general(request: HttpRequest) -> HttpResponse | HttpResponseServerErr
                     is_first_meeting = False
                 return render(
                     request=request,
-                    template_name="ui/premaritalmashora/premaritalmashora.html",
+                    template_name="ui/premaritalmashora/premaritalmashora.djhtml",
                     context={"is_first_meeting": is_first_meeting},
                 )
             case _:
@@ -58,41 +58,43 @@ def submit_general(request: HttpRequest) -> HttpResponse | HttpResponseServerErr
 
 # child mashora
 def mother_info(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name="ui/childmashora/motherinfo.html")
+    return render(request=request, template_name="ui/childmashora/motherinfo.djhtml")
 
 
 def dad_info(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name="ui/childmashora/dadinfo.html")
+    return render(request=request, template_name="ui/childmashora/dadinfo.djhtml")
 
 
 def child_info(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name="ui/childmashora/childinfo.html")
+    return render(request=request, template_name="ui/childmashora/childinfo.djhtml")
 
 
 def visit_info(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name="ui/childmashora/visitinfo.html")
+    return render(request=request, template_name="ui/childmashora/visitinfo.djhtml")
 
 
 def visit_topics(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name="ui/childmashora/visittopics.html")
+    return render(request=request, template_name="ui/childmashora/visittopics.djhtml")
 
 
 # pre marital mashora
 def female_info(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name="ui/premaritalmashora/femaleinfo.html")
+    return render(
+        request=request, template_name="ui/premaritalmashora/femaleinfo.djhtml"
+    )
 
 
 def male_info(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name="ui/premaritalmashora/maleinfo.html")
+    return render(request=request, template_name="ui/premaritalmashora/maleinfo.djhtml")
 
 
 def meeting_info(request: HttpRequest) -> HttpResponse:
     return render(
-        request=request, template_name="ui/premaritalmashora/meetinginfo.html"
+        request=request, template_name="ui/premaritalmashora/meetinginfo.djhtml"
     )
 
 
 def meeting_topics(request: HttpRequest) -> HttpResponse:
     return render(
-        request=request, template_name="ui/premaritalmashora/meetingtopics.html"
+        request=request, template_name="ui/premaritalmashora/meetingtopics.djhtml"
     )

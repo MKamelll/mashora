@@ -1,7 +1,7 @@
-{% extends "users/base.html" %}
-
-{% block title %}تسجيل الدخول{% endblock title %}
-
+{% extends "ui/base.djhtml" %}
+{% block title %}
+    تسجيل الدخول
+{% endblock title %}
 {% block content %}
- <h1>fuck off</h1>
+    <h1>fuck off</h1>
 {% endblock content %}
