@@ -1,5 +1,5 @@
-#type: ignore
+# type: ignore
 from django.contrib import admin
-from .models import MashoraDoctor
+from .models import DoctorInfo
 
-admin.site.register(MashoraDoctor)
+admin.site.register(DoctorInfo)

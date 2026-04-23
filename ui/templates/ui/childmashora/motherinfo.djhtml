@@ -1,20 +1,20 @@
 {% extends "ui/base.djhtml" %}
-{% block title %}بيانات الأم{% endblock title %}
-
+{% block title %}
+    بيانات الأم
+{% endblock title %}
 {% block content %}
-<div class="max-w-2xl mx-auto p-4">
-    <form class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-base-200 p-6 rounded-lg shadow">
-        {% include "ui/components/name.djhtml" with label='الاسم' id='mother-name'%}
-        {% include "ui/components/number.djhtml" with label='الرقم القومي' placeholder='تأكد من كتابة 14 رقم' id='mother-national-id'%}
-        {% include "ui/components/number.djhtml" with label='رقم الهاتف' placeholder='تأكد من كتابة 11 رقم' id='mother-phone-number'%}
-        {% include "ui/components/date.djhtml" with label='تاريخ الميلاد' id='mother-birth-date'%}
-        {% include "ui/components/education.djhtml" with label='مستوي تعليم الأم' id='mother-education'%}
-        {% include "ui/components/number.djhtml" with label='عدد الأطفال' id='children-count'%}
-        {% include "ui/components/number.djhtml" with label='المدة بين اخر حملين' id='duration-between-last-two-pregnancies'%}
-
-        <div class="md:col-span-2 text-right flex justify-end">
-            <button class="btn btn-primary">متابعة</button>
-        </div>
-    </form>
-</div>
+    <div class="max-w-2xl mx-auto p-4">
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-base-200 p-6 rounded-lg shadow">
+            {% include "ui/components/name.djhtml" with label='الاسم' id='mother-name' %}
+            {% include "ui/components/number.djhtml" with label='الرقم القومي' placeholder='تأكد من كتابة 14 رقم' id='mother-national-id' %}
+            {% include "ui/components/number.djhtml" with label='رقم الهاتف' placeholder='تأكد من كتابة 11 رقم' id='mother-phone-number' %}
+            {% include "ui/components/date.djhtml" with label='تاريخ الميلاد' id='mother-birth-date' %}
+            {% include "ui/components/education.djhtml" with label='مستوي تعليم الأم' id='mother-education' %}
+            {% include "ui/components/number.djhtml" with label='عدد الأطفال' id='children-count' %}
+            {% include "ui/components/number.djhtml" with label='المدة بين اخر حملين' id='duration-between-last-two-pregnancies' %}
+            <div class="md:col-span-2 text-right flex justify-end">
+                <button class="btn btn-primary">متابعة</button>
+            </div>
+        </form>
+    </div>
 {% endblock content %}
