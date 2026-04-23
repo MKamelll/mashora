@@ -1,0 +1,140 @@
+{% extends "common/base.djhtml" %}
+{% block title %}
+    بيانات الطفل
+{% endblock title %}
+{% block content %}
+    <div class="max-w-2xl mx-auto p-4">
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-base-200 p-6 rounded-lg shadow">
+            {% include "common/components/name.djhtml" with label='الاسم' id='child-name' %}
+            {% include "common/components/date.djhtml" with label='تاريخ الميلاد' id='child-birth-date' %}
+            {% include "common/components/number.djhtml" with label='العمر الحالي للطفل' placeholder='بالشهور' id='child-current-age' %}
+            {% include "common/components/number.djhtml" with label='العمر الرحمي للطفل' placeholder='بالاسبوع' id='child-age-since-conception' %}
+            <div x-data="{followup_place_selected: ''}">
+                <div>
+                    <label class="label">
+                        <span class="label-text">مكان المتابعة</span>
+                    </label>
+                    <select id="follow-up-place"
+                            x-model="followup_place_selected"
+                            class="select select-bordered w-full">
+                        <option disabled selected value="">اختر</option>
+                        <option value="unit">وحدة</option>
+                        <option value="hospital">مستشفي</option>
+                        <option value="other">اخري</option>
+                    </select>
+                </div>
+                <div x-show="followup_place_selected === 'unit'" x-transition>
+                    <input id="follow-up-place-unit"
+                           type="text"
+                           class="input input-bordered w-full"
+                           placeholder="ادخل اسم الوحدة" />
+                </div>
+                <div x-show="followup_place_selected === 'hospital'" x-transition>
+                    <input id="follow-up-place-hospital"
+                           type="text"
+                           class="input input-bordered w-full"
+                           placeholder="ادخل اسم المستشفي" />
+                </div>
+                <div x-show="followup_place_selected === 'other'" x-transition>
+                    <input id="follow-up-place-other"
+                           type="text"
+                           class="input input-bordered w-full"
+                           placeholder="ادخل اسم المكان" />
+                </div>
+            </div>
+            <div x-data="{referal_source: ''}">
+                <div>
+                    <label class="label">
+                        <span class="label-text">مصدر الاحالة</span>
+                    </label>
+                    <select id="referal-source"
+                            x-model="referal_source"
+                            class="select select-bordered w-full">
+                        <option disabled selected value="">اختر</option>
+                        <option value="hospital">مستشفي</option>
+                        <option value="clinic">عيادة خاصة</option>
+                        <option value="vaccine-clinic">عيادة التطعيمات</option>
+                        <option value="advice">نصيحة</option>
+                    </select>
+                </div>
+                <div x-show="referal_source === 'hospital'" x-transition>
+                    <input id="referal-source-hospital"
+                           type="text"
+                           class="input input-bordered w-full"
+                           placeholder="ادخل اسم المستشفي" />
+                </div>
+                <div x-show="referal_source === 'clinic'" x-transition>
+                    <input id="referal-source-clinic"
+                           type="text"
+                           class="input input-bordered w-full"
+                           placeholder="ادخل اسم العيادة الخاصة" />
+                </div>
+            </div>
+            <div>
+                <label class="label">
+                    <span class="label-text">نوع الولادة</span>
+                </label>
+                <select id="pregnancy-procedure" class="select select-bordered w-full">
+                    <option disabled selected value="">اختر</option>
+                    <option value="c-section">قيصري</option>
+                    <option value="non-c-section">طبيعي</option>
+                </select>
+            </div>
+            <div>
+                <label class="label">
+                    <span class="label-text">مكان الولادة</span>
+                </label>
+                <select id="conception-place" class="select select-bordered w-full">
+                    <option disabled selected value="">اختر</option>
+                    <option value="home">المنزل</option>
+                    <option value="hospital">المستشفي</option>
+                </select>
+            </div>
+            {% include "common/components/number.djhtml" with label='وزن الطفل عند الولادة' placeholder='بالجرام' id='child-birth-weight' %}
+            {% include "common/components/number.djhtml" with label='طول الطفل عند الولادة' placeholder='بالسنتيمتر' id='child-birth-height' %}
+            {% include "common/components/number.djhtml" with label='مقاس راس الطفل عند الولادة' placeholder='بالسنتيمتر' id='child-birth-head-size' %}
+            <div x-data="{baby_hospitalization: ''}">
+                <div>
+                    <label class="label">
+                        <span class="label-text">دخول الحضانة</span>
+                    </label>
+                    <select id="birth_hospitalized"
+                            x-model="baby_hospitalization"
+                            class="select select-bordered w-full">
+                        <option disabled selected value="">اختر</option>
+                        <option value="yes">تم</option>
+                        <option value="no">لم يتم</option>
+                    </select>
+                </div>
+                <div x-show="baby_hospitalization === 'yes'" x-transition>
+                    <label class="label">
+                        <span class="label-text">سبب دخول الحضانة</span>
+                    </label>
+                    <select id="reason-for-birth-hospitalization"
+                            class="select select-bordered w-full">
+                        <option disabled selected value="">اختر</option>
+                        <option value="below-average-weight">انخفاض وزن الطفل</option>
+                        <option value="need-for-medication">احتياج الطفل لأدوية محددة بهذا الوقت</option>
+                        <option value="difficulty-breathing">صعوبة شديدة في التنفس لعدم اكتمال نمو الرئتين</option>
+                        <option value="fever">ارتفاع درجة حرارة جسم الرضيع</option>
+                        <option value="abnormal-vital-signs">تعطل العمليات الحيوية بجسم الطفل</option>
+                        <option value="hypoglycemia">انخفاض معدل الجلوكوز في دم الطفل</option>
+                        <option value="abnormal-git-function">معاناة الرضيع مشكلات في الجهاز الهضمي</option>
+                        <option value="septicemia">اصابة الطفل بعدوي في الدم</option>
+                        <option value="jaundice">اصابة الطفل بالصفراء</option>
+                        <option value="problems-during-pregnancy">حدوث مشكلات خلال الولادة الولادة المتعسرة أو الحمل الحرج</option>
+                        <option value="birth-defect">وجود عيب خلقي يمنع الطفل عن التنفس أو الرضاعة بشكل طبيعي</option>
+                    </select>
+                </div>
+                <div x-show="baby_hospitalization === 'yes'" x-transition>
+                    {% include "common/components/number.djhtml" with label='مدة البقاء في الحضانة' placeholder='بالأيام' id='birth-hospitalization-duration' %}
+                </div>
+            </div>
+            {% include "common/components/topicdisscused.djhtml" with label='ملامسة الجلد في الساعة الذهبية الأولي' id='first-hour-skin-to-skin-contact' %}
+            {% include "common/components/topicdisscused.djhtml" with label='الرضاعة الطبيعية في الساعة الذهبية الأولي' id='first-hour-breast-feeding' %}
+            <div class="md:col-span-2 text-right flex justify-end">
+                <button class="btn btn-primary">متابعة</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

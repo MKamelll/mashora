@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "tailwind": "npx @tailwindcss/cli -i ./ui/static/ui/css/input.css -o ./ui/static/ui/css/output.css --watch",
+    "tailwind": "npx @tailwindcss/cli -i ./common/static/common/css/input.css -o ./common/static/common/css/output.css --watch",
     "django": "uv run python3 manage.py runserver",
     "dev": "concurrently --raw 'npm run tailwind' 'npm run django'"
   },
