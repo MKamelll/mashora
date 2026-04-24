@@ -17,5 +17,5 @@
         <option value="phone">برقم الهاتف</option>
         <option value="national_id">بالرقم القومي</option>
     </select>
-    <button class="btn btn-primary flex-1">ابحث</button>
+    <button class="btn btn-primary btn-outline flex-1">ابحث</button>
 </div>
