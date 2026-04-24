@@ -3,7 +3,7 @@
     الصفحة الرئيسية
 {% endblock title %}
 {% block content %}
-    {% include "dashboard/components/navbar.djhtml" with drawer="my-drawer-5" %}
+    {% include "dashboard/components/navbar.djhtml" with drawer="my-drawer-5" title="الصفحة الرئيسية" %}
     <div class="drawer lg:drawer-open">
         <input id="my-drawer-5" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content flex flex-col items-center justify-center">

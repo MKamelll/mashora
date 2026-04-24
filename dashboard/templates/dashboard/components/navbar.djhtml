@@ -13,6 +13,6 @@
         </label>
     </div>
     <div class="flex-1">
-        <a class="btn btn-ghost text-xl">الصفحة الرئيسية</a>
+        <a class="btn btn-ghost text-xl">{{ title }}</a>
     </div>
 </div>
