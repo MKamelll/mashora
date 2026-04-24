@@ -18,4 +18,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-urlpatterns = [path("admin/", admin.site.urls), path("", include("users.urls"))]
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("users/", include("users.urls")),
+    path("childmashora/", include("childmashora.urls")),
+    path("premaritalmashora/", include("premaritalmashora.urls")),
+    path("pregnantmashora/", include("pregnantmashora.urls")),
+    path("doctors/", include("doctors.urls")),
+    path("", include("dashboard.urls")),
+]

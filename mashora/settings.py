@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "premaritalmashora",
     "pregnantmashora",
     "common",
+    "dashboard",
 ]
 
 MIDDLEWARE = [
