@@ -6,19 +6,13 @@
     {% include "dashboard/components/navbar.djhtml" with drawer="my-drawer-5" title="الصفحة الرئيسية" %}
     <div class="drawer lg:drawer-open">
         <input id="my-drawer-5" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content flex flex-col items-center justify-center">
-            <h1>fuck off</h1>
+        <div class="drawer-content flex flex-col items-center justify-start p-4">
+            {% include "dashboard/components/search_bar.djhtml" %}
         </div>
         <div class="drawer-side">
             <label for="my-drawer-5" aria-label="close sidebar" class="drawer-overlay"></label>
-            <ul class="menu bg-base-200 min-h-full w-40 p-4">
-                <!-- Sidebar content here -->
-                <li>
-                    <a>Sidebar Item 1</a>
-                </li>
-                <li>
-                    <a>Sidebar Item 2</a>
-                </li>
+            <ul class="menu bg-base-200 min-h-full w-48 p-4">
+                {% include "dashboard/components/side_bar.djhtml" %}
             </ul>
         </div>
     </div>
