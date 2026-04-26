@@ -1,37 +1,35 @@
 {% extends "common/base.djhtml" %}
-{% block title %}
-    مشورة الطفل
-{% endblock title %}
 {% block content %}
+    <span id="dashboard_title" hx-swap-oob="true">تسجيل حالة أطفال</span>
     <div x-data="{tab: ''}" role="tablist" class="tabs tabs-bordered">
         <a role="tab"
            :class="tab === 'mother'? 'tab tab-active' : 'tab'"
            @click="tab = 'mother'"
-           hx-get="/motherinfo"
+           hx-get="/childmashora/motherinfo"
            hx-target="#info"
            hx-swap="innerHTML">بيانات الأم</a>
         <a role="tab"
            :class="tab === 'dad'? 'tab tab-active' : 'tab'"
            @click="tab = 'dad'"
-           hx-get="/dadinfo"
+           hx-get="/childmashora/dadinfo"
            hx-target="#info"
            hx-swap="innerHTML">بيانات الأب</a>
         <a role="tab"
            :class="tab === 'child'? 'tab tab-active' : 'tab'"
            @click="tab = 'child'"
-           hx-get="/childinfo"
+           hx-get="/childmashora/childinfo"
            hx-target="#info"
            hx-swap="innerHTML">بيانات الطفل</a>
         <a role="tab"
            :class="tab === 'visit'? 'tab tab-active' : 'tab'"
            @click="tab = 'visit'"
-           hx-get="/visitinfo"
+           hx-get="/childmashora/visitinfo"
            hx-target="#info"
            hx-swap="innerHTML">بيانات الزيارة</a>
         <a role="tab"
            :class="tab === 'visit_topics'? 'tab tab-active' : 'tab'"
            @click="tab = 'visit_topics'"
-           hx-get="/visittopics"
+           hx-get="/childmashora/visittopics"
            hx-target="#info"
            hx-swap="innerHTML">مواضيع الزيارة</a>
     </div>

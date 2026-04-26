@@ -13,6 +13,8 @@
         </label>
     </div>
     <div class="flex-1">
-        <a class="btn btn-ghost text-xl">{{ title }}</a>
+        <a class="btn btn-ghost text-xl">
+            <span id="dashboard_title">المشورة الأسرية</span>
+        </a>
     </div>
 </div>

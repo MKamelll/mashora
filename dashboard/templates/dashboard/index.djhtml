@@ -1,12 +1,9 @@
 {% extends "common/base.djhtml" %}
-{% block title %}
-    الصفحة الرئيسية
-{% endblock title %}
 {% block content %}
-    {% include "dashboard/components/navbar.djhtml" with drawer="my-drawer-5" title="الصفحة الرئيسية" %}
+    {% include "dashboard/components/navbar.djhtml" with drawer="my-drawer-5" %}
     <div class="drawer lg:drawer-open">
         <input id="my-drawer-5" type="checkbox" class="drawer-toggle" />
-        <div id="dashboard-body"
+        <div id="dashboard_body"
              class="drawer-content flex flex-col items-center justify-start p-4"></div>
         <div class="drawer-side">
             <label for="my-drawer-5" aria-label="close sidebar" class="drawer-overlay"></label>

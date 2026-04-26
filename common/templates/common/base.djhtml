@@ -8,11 +8,7 @@
               type="text/css" />
         <script src="https://unpkg.com/htmx.org@2.0.4"></script>
         <script src="//unpkg.com/alpinejs" defer></script>
-        <title>
-            {% block title %}
-                الألف يوم الذهبية
-            {% endblock title %}
-        </title>
+        <title>الألف يوم الذهبية</title>
     </head>
     <body>
         {% block content %}

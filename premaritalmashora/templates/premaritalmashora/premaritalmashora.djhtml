@@ -1,7 +1,4 @@
 {% extends "common/base.djhtml" %}
-{% block title %}
-    مشورة ما قبل الزواج
-{% endblock title %}
 {% block content %}
     <div x-data="{tab: ''}" role="tablist" class="tabs tabs-bordered">
         {% if is_first_meeting %}

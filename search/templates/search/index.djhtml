@@ -1,1 +1,2 @@
+<span id="dashboard_title" hx-swap-oob="true">البحث</span>
 {% include "search/components/search_bar.djhtml" %}
