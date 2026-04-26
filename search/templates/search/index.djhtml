@@ -1,0 +1,1 @@
+{% include "search/components/search_bar.djhtml" %}

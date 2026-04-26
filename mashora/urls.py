@@ -25,5 +25,6 @@ urlpatterns = [
     path("premaritalmashora/", include("premaritalmashora.urls")),
     path("pregnantmashora/", include("pregnantmashora.urls")),
     path("doctors/", include("doctors.urls")),
+    path("search/", include("search.urls")),
     path("", include("dashboard.urls")),
 ]
