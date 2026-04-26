@@ -44,7 +44,10 @@
                    @click="selected = 'pregnant'">حوامل</a></a>
             </li>
             <li>
-                <a :class="{'bg-primary': selected === 'premarital'}"
+                <a hx-get="/premaritalmashora"
+                   hx-target="#dashboard_body"
+                   hx-swap="innerHTML"
+                   :class="{'bg-primary': selected === 'premarital'}"
                    @click="selected = 'premarital'">ما قبل الزواج</a>
             </li>
         </ul>

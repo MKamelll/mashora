@@ -3,23 +3,25 @@ from django.http import HttpRequest, HttpResponse
 
 
 # Create your views here.
-def female_info(request: HttpRequest) -> HttpResponse:
+def index(request: HttpRequest) -> HttpResponse:
     return render(
-        request=request, template_name="ui/premaritalmashora/femaleinfo.djhtml"
+        request=request, template_name="premaritalmashora/premaritalmashora.djhtml"
     )
+
+
+def female_info(request: HttpRequest) -> HttpResponse:
+    return render(request=request, template_name="premaritalmashora/femaleinfo.djhtml")
 
 
 def male_info(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name="ui/premaritalmashora/maleinfo.djhtml")
+    return render(request=request, template_name="premaritalmashora/maleinfo.djhtml")
 
 
 def meeting_info(request: HttpRequest) -> HttpResponse:
-    return render(
-        request=request, template_name="ui/premaritalmashora/meetinginfo.djhtml"
-    )
+    return render(request=request, template_name="premaritalmashora/meetinginfo.djhtml")
 
 
 def meeting_topics(request: HttpRequest) -> HttpResponse:
     return render(
-        request=request, template_name="ui/premaritalmashora/meetingtopics.djhtml"
+        request=request, template_name="premaritalmashora/meetingtopics.djhtml"
     )
