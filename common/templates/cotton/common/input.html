@@ -1,0 +1,24 @@
+{% if type == "number" %}
+    <div x-show="{{ xshow }}" x-transition>
+        <label class="label">
+            <span class="label-text">{{ label }}</span>
+        </label>
+        <input id="{{ id }}"
+               type="text"
+               inputmode="numeric"
+               pattern="[0-9]"
+               class="input input-bordered w-full no-spinner"
+               placeholder="{{ placeholder }}" />
+    </div>
+{% else %}
+    <div x-show="{{ xshow }}" x-transition>
+        <label class="label">
+            <span class="label-text">{{ label }}</span>
+        </label>
+        <input id="{{ id }}"
+               type="{{ type }}"
+               placeholder="{{ placeholder }}"
+               class="input input-bordered w-full"
+               required />
+    </div>
+{% endif %}

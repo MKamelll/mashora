@@ -1,0 +1,14 @@
+<div>
+    <label class="label">
+        <span class="label-text break-words whitespace-normal">{{ label }}</span>
+    </label>
+    <select required
+            id="{{ id }}"
+            class="select select-bordered w-full"
+            x-model="{{ xmodel }}">
+        <option disabled value="">اختر</option>
+        {% for value, display_text in options.items %}
+            <option value="{{ value }}">{{ display_text }}</option>
+        {% endfor %}
+    </select>
+</div>
