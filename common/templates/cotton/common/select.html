@@ -1,3 +1,4 @@
+<c-vars label id options />
 <div>
     <label class="label">
         <span class="label-text break-words whitespace-normal">{{ label }}</span>
@@ -5,7 +6,7 @@
     <select required
             id="{{ id }}"
             class="select select-bordered w-full"
-            x-model="{{ xmodel }}">
+            {{ attrs }}>
         <option disabled value="">اختر</option>
         {% for value, display_text in options.items %}
             <option value="{{ value }}">{{ display_text }}</option>

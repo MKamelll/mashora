@@ -134,21 +134,6 @@ wheels = [
 ]
 
 [[package]]
-name = "django-language-server"
-version = "6.0.2"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/31/ee/97c729bd23e3b4cf94dd87aebbc9f0eb7dde53850ce1b26a4220d16e3060/django_language_server-6.0.2.tar.gz", hash = "sha256:fba1ce79bd7d5f945eb8d89fc0acecf4675fb2e6b7754005680781fc32beef7f", size = 309879, upload-time = "2026-02-12T03:25:39.658Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/81/dd/2ee79e32a434db77903cf1429f9754827dcc10ee70d536a1880b5a6c49f9/django_language_server-6.0.2-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:fae8fe49a7d2056881e1d248bc7ef5f80883c78761582249adca9d262ae23c99", size = 4840431, upload-time = "2026-02-12T03:25:33.72Z" },
-    { url = "https://files.pythonhosted.org/packages/51/a5/43b839ccfd042ab98b7cc8d2238cf8d1b8ef7b00629c4dc3e89092bdb60d/django_language_server-6.0.2-py3-none-macosx_11_0_arm64.whl", hash = "sha256:e1e56e69c880e6064b6d2b3b70e62c9306aa8f8e0cb4d839028f3f2c99d3de07", size = 4654154, upload-time = "2026-02-12T03:25:31.853Z" },
-    { url = "https://files.pythonhosted.org/packages/c9/66/372e5799537e1feb1e885d7fca79ad9c18435c8bfa7118a52efd9938c343/django_language_server-6.0.2-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:8372781c88170c56f06b96bfa55706ee8f4c045c01aa23f0c2ba6faff578d891", size = 4665739, upload-time = "2026-02-12T03:25:27.578Z" },
-    { url = "https://files.pythonhosted.org/packages/b9/a7/e01381fee596d3df3d4c2383baa18da946942f49137bdecad54ec43c76e3/django_language_server-6.0.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a38568dbb65a7ecc180738446dfa8739a36ff724ecfe366f1b42917e70513916", size = 4964869, upload-time = "2026-02-12T03:25:30.378Z" },
-    { url = "https://files.pythonhosted.org/packages/ef/ca/fe9d1e459c45443346e24c3f7dc0747c6dd602532dca43903dcf5dfd0393/django_language_server-6.0.2-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:20013bc370d8757ea00d902e670cbec277a6cc31ec901464350ba4a881f50538", size = 4658494, upload-time = "2026-02-12T03:25:35.326Z" },
-    { url = "https://files.pythonhosted.org/packages/87/c9/12f34d3a527660a6080237ccfe72bc9b03c60551f386a7f1d11290ff7925/django_language_server-6.0.2-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:b08907d7d73cfaaef15783c34b139ae176354c3fc1a15c631f4314fb97f87871", size = 5030645, upload-time = "2026-02-12T03:25:37.951Z" },
-    { url = "https://files.pythonhosted.org/packages/44/0e/68b2f8e28473db5abde9a9baa33c0398aa61c5186ee275f5d991e7ab6db9/django_language_server-6.0.2-py3-none-win_amd64.whl", hash = "sha256:6c4722f90a0f25dc9a97b86507480e3ceeac9027b4a7bce12f88438028623bb5", size = 4872301, upload-time = "2026-02-12T03:25:40.772Z" },
-]
-
-[[package]]
 name = "django-stubs"
 version = "6.0.3"
 source = { registry = "https://pypi.org/simple" }
@@ -356,7 +341,6 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "django-language-server" },
     { name = "djlint" },
     { name = "pylsp-mypy" },
     { name = "python-lsp-black" },
@@ -373,7 +357,6 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "django-language-server", specifier = ">=6.0.2" },
     { name = "djlint", specifier = ">=1.36.4" },
     { name = "pylsp-mypy", specifier = ">=0.7.1" },
     { name = "python-lsp-black", specifier = ">=2.0.0" },

@@ -13,7 +13,6 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "django-language-server>=6.0.2",
     "djlint>=1.36.4",
     "pylsp-mypy>=0.7.1",
     "python-lsp-black>=2.0.0",

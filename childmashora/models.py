@@ -5,6 +5,7 @@ from doctors.models import DoctorInfo
 
 
 class ChildInfo(models.Model):
+
     class Delivery(models.TextChoices):
         C_SECTION = "C_SECTION", "قيصري"
         NATURAL = "NATURAL", "طبيعي"

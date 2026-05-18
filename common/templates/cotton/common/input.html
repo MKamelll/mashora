@@ -1,5 +1,6 @@
+<c-vars label placeholder type id />
 {% if type == "number" %}
-    <div x-show="{{ xshow }}" x-transition>
+    <div {{ attrs }} x-transition>
         <label class="label">
             <span class="label-text">{{ label }}</span>
         </label>
@@ -11,7 +12,7 @@
                placeholder="{{ placeholder }}" />
     </div>
 {% else %}
-    <div x-show="{{ xshow }}" x-transition>
+    <div {{ attrs }} x-transition>
         <label class="label">
             <span class="label-text">{{ label }}</span>
         </label>
